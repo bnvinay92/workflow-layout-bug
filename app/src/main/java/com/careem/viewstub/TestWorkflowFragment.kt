@@ -7,9 +7,9 @@ import kotlinx.coroutines.Dispatchers
 
 class TestWorkflowFragment : WorkflowFragment<Unit, Nothing>() {
 
-    override val viewEnvironment = ViewEnvironment(ViewRegistry(TestLayoutRunner))
+    override val containerHints = ContainerHints(ViewRegistry(TestLayoutRunner))
 
-    object TestLayoutRunner : ViewFactory<Unit> by LayoutRunner.bindNoRunner(R.layout.layout_test)
+    object TestLayoutRunner : ViewBinding<Unit> by LayoutRunner.bindNoRunner(R.layout.layout_test)
 
     override fun onCreateWorkflow(): WorkflowRunner.Config<Unit, Nothing> {
         return WorkflowRunner.Config(

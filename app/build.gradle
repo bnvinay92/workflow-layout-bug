@@ -29,7 +29,7 @@ android {
     }
 }
 
-def workflow_version = "1.0.0-alpha.2-after-viewstub-SNAPSHOT"
+def workflow_version = "0.23.2"
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
