@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 
 class TestWorkflowFragment : WorkflowFragment<Unit, Nothing>() {
 
-    override val containerHints = ContainerHints(ViewRegistry(TestLayoutRunner))
+    override val viewEnvironment = ContainerHints(ViewRegistry(TestLayoutRunner))
 
     object TestLayoutRunner : ViewBinding<Unit> by LayoutRunner.bindNoRunner(R.layout.layout_test)
 
@@ -15,7 +15,8 @@ class TestWorkflowFragment : WorkflowFragment<Unit, Nothing>() {
         return WorkflowRunner.Config(
             workflow = Workflow.stateless { Unit },
             props = Unit,
-            dispatcher = Dispatchers.Main.immediate
+            dispatcher = Dispatchers.Main.immediate,
+            diagnosticListener = null
         )
     }
 }
